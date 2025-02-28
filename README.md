@@ -42,7 +42,7 @@ python scripts/data_preprocessing.py
 ### 3. Model Training
 Train the model using the following command:
 ```bash
-python scripts/model_training.py
+python scripts/modelling.py
 ```
 
 ### 4. Model Inference
