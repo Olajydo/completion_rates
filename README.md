@@ -1,7 +1,7 @@
-# Online Course Engagement Analysis
+## Online Course Completion Prediction
 
 ## Project Overview
-This project focuses on analyzing student engagement in an online learning platform. A machine learning model is used to predict course completion rates based on user behavior, quiz performance, and video interactions. The goal is to identify key engagement factors and enhance learning outcomes.
+This project aims to predict whether a user will complete an online course based on engagement metrics. Using machine learning techniques, the model identifies key factors influencing course completion, allowing for better interventions to improve student retention and engagement.
 
 ---
 
@@ -23,6 +23,8 @@ DEXTER_CYBERLAB/
 
 ---
 
+
+
 ## How to Run the Project
 
 ### 1. Install Dependencies
@@ -34,49 +36,39 @@ pip install -r requirements.txt
 ### 2. Data Preprocessing
 Run the preprocessing script to clean and transform the dataset:
 ```bash
-python src/preprocessing.py
+python scripts/data_preprocessing.py
 ```
 
-### 3. Feature Selection
-Execute the feature selection script to identify the most relevant features:
-```bash
-python src/feature_selection.py
-```
-
-### 4. Model Training
+### 3. Model Training
 Train the model using the following command:
 ```bash
-python src/modelling.py
+python scripts/model_training.py
 ```
 
-### 5. Model Inference
+### 4. Model Inference
 To make predictions using the trained model, run:
 ```bash
-python src/inference.py
+python scripts/inference.py
 ```
 
 ---
 
 ## Model Performance Summary
-### Key Insights from Feature Importance Analysis:
-The model identified the following as the most important features influencing student engagement and course completion:
+### RandomForest Model Performance
+- **Threshold:** The best threshold for classification was set to **0.35**.
+- **Precision:** 95% (Only 5% of predicted completions were incorrect, reducing false positives).
+- **Recall:** 92% (Most course completions were detected, ensuring good engagement tracking).
+- **Accuracy:** 95% (Overall model performance is strong in predicting course completion correctly).
 
-1. **Completion Rate** - The strongest predictor of success; students with higher engagement are more likely to complete the course.
-2. **Quiz Scores** - Higher quiz performance correlates with better retention and engagement.
-3. **Number of Videos Watched** - Indicates active participation in the learning process.
-4. **Number of Quizzes Taken** - Reflects a student’s willingness to test their understanding.
-5. **Time Spent on Course** - Students who dedicate more time have better outcomes.
-6. **Engagement Rate** - A metric combining multiple engagement indicators.
-7. **Quiz Score Per Attempt** - Measures improvement and effort in assessments.
-8. **Course Category** - Certain courses may have varying levels of engagement.
-9. **Low Effort User** - Identifies users with minimal interaction who are at risk of disengagement.
+### Key Insights from Exploratory Data Analysis:
+- **Completion Rate:** The most influential factor. Users with higher completion rates tend to finish courses successfully.
+- **Quiz Scores:** Higher quiz scores correlate with an increased likelihood of completing a course.
+- **Number of Videos Watched & Quizzes Taken:** These engagement metrics show a strong positive impact on completion likelihood.
+- **Time Spent on Course & Engagement Rate:** More time invested leads to higher completion probabilities.
+- **Quiz Score Per Attempt:** A moderate indicator, suggesting that students who perform well on quizzes are more likely to persist.
+- **Course Category & Low Effort Users:** Have minimal impact on predicting completion.
 
-### Model Performance Metrics:
-- **Precision:** 91% (Only 9% of flagged cases are misclassified)
-- **Recall:** 79% (Most engaged users are correctly classified)
-- **Accuracy:** 87% (Strong overall model performance)
-
-These insights help improve course design by focusing on content and engagement strategies that maximize completion rates.
+The insights suggest that user engagement—especially completion rate, quiz scores, and time spent—is crucial for predicting course completion. Course providers can use this information to target interventions for students at risk of dropping out.
 
 ---
 
